@@ -1,0 +1,5 @@
+CATALOGUE_HOST: catalogue.prasannadevops.online
+CART_HOST: cart.prasannadevops.online
+USER_HOST: user.prasannadevops.online
+SHIPPING_HOST: shipping.prasannadevops.online
+PAYMENT_HOST: payment.prasannadevops.online
