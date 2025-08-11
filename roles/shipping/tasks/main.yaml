@@ -1,0 +1,37 @@
+
+- name: maven setup
+  include_role:
+    name: common
+    tasks_from: maven
+  
+- name: app setup
+  include_role:
+    name: common
+    tasks_from: app_setup
+- name: installing mysql
+  ansible.builtin.dnf:
+    name: mysql
+    state: present
+# - name: connect to mysql using app user
+#   community.mysql.mysql_info:
+#     login_user: shipping
+#     login_password: RoboShop@1
+#     login_host: mysql.daws84s.site
+#     login_db: cities
+- name: import data
+  community.mysql.mysql_db:
+    name: all
+    login_user: "{{ MYSQL_ROOT_USER }}"
+    login_password: "{{ MYSQL_ROOT_PASSWORD }}"
+    login_host: "{{ MYSQL_HOST }}"
+    state: import
+    target: "{{ item }}"
+  loop:
+  - /app/db/schema.sql
+  - /app/db/app-user.sql
+  - /app/db/master-data.sql
+
+- name: systemd setup
+  include_role: 
+    name: common
+    tasks_from: systemd
