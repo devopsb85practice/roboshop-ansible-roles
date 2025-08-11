@@ -1,17 +1,14 @@
 
+- name: app setup
+  include_role:
+    name: common
+    tasks_from: app_setup
 - name: maven setup
   include_role:
     name: common
     tasks_from: maven
   
-- name: app setup
-  include_role:
-    name: common
-    tasks_from: app_setup
-- name: installing mysql
-  ansible.builtin.dnf:
-    name: mysql
-    state: present
+
 # - name: connect to mysql using app user
 #   community.mysql.mysql_info:
 #     login_user: shipping
