@@ -6,8 +6,6 @@
   include_role:
     name: common
     tasks_from: nodejs
--
-
 
 
 - name: copying the mongodb repo file
