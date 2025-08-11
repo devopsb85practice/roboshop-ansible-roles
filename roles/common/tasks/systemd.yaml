@@ -8,5 +8,5 @@
 - name: enable the {{ component }}
   ansible.builtin.service:
     name: {{ component }}
-    state: started
+    state: restarted
     enabled: yes
