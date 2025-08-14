@@ -30,8 +30,8 @@
     name: common
     tasks_from: systemd
 - name: deployment
-  tags:
-  - deployment
-  import_role:
+  # tags:
+  # - deployment
+  include_role:
     name: common
     tasks_from: deployment
