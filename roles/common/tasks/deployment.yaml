@@ -3,7 +3,7 @@
   - deployment
   ansible.builtin.service:
     name: "{{ component }}"
-    status: stop
+    status: stopped
 
 - name: remove app/directory
   ansible.builtin.file:
