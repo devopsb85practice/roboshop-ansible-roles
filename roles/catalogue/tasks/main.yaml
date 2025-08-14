@@ -32,5 +32,4 @@
 - name: deployment
   include_role:
     name: common
-    tasks: deployment
-    
+    tasks_from: deployment
